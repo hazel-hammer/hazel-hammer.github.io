@@ -100,6 +100,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
 }
 @media print { .masthead,.skip-link,.page__footer { display:none; } .sidebar { position:static; } #main { padding:0; } body { background:white; } .paper-box { break-inside:avoid; } }
 
-/* Keep the supplied photo intact; crop only its profile display. */
-.portrait { overflow:hidden; display:block; }
-.portrait img { display:block; width:100%; height:100%; object-fit:cover; object-position:60% 70%; transform:scale(1.35); transform-origin:60% 65%; }
+/* Full original portrait: preserve the photograph and its background. */
+.portrait { width:100%; max-width:225px; height:auto; overflow:hidden; display:block; border:0; border-radius:0; outline:0; box-shadow:none; background:transparent; }
+.portrait img { display:block; width:100%; height:auto; transform:none; }
+@media (max-width:760px) { .portrait { width:120px; } }

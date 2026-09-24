@@ -19,9 +19,9 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
 #main { display:grid; grid-template-columns:225px minmax(0,1fr); gap:55px; max-width:1240px; margin:0 auto; padding:36px 28px 58px; }
 .sidebar { align-self:start; position:sticky; top:104px; min-width:0; }
 .author__avatar { margin-bottom:18px; }
-.portrait-placeholder { width:175px; height:175px; border-radius:50%; background:var(--soft); border:1px solid #ddd0bf; outline:5px solid var(--background); box-shadow:0 0 0 6px var(--border); display:flex; flex-direction:column; justify-content:center; align-items:center; color:#78634e; }
-.portrait-placeholder > span { font-size:1.35rem; }
-.portrait-placeholder small { font-size:.8125rem; margin-top:3px; }
+.portrait { width:175px; height:175px; border-radius:50%; background:var(--soft); border:1px solid #ddd0bf; outline:5px solid var(--background); box-shadow:0 0 0 6px var(--border); display:flex; flex-direction:column; justify-content:center; align-items:center; color:#78634e; }
+.portrait > span { font-size:1.35rem; }
+.portrait small { font-size:.8125rem; margin-top:3px; }
 .author__name { font-size:1.5rem; line-height:1.3; margin:21px 0 10px; letter-spacing:-.025em; }
 .author__name span { display:block; font-weight:400; font-size:1.2rem; margin-top:2px; }
 .author__bio { font-size:.9375rem; line-height:1.6; margin:0 0 17px; color:#4b453d; }
@@ -82,8 +82,8 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
   .sidebar { position:static; margin-bottom:30px; padding-bottom:24px; border-bottom:1px solid var(--border); }
   .profile_box { display:flex; align-items:center; gap:23px; }
   .author__avatar { margin:0; flex:0 0 auto; }
-  .portrait-placeholder { width:106px; height:106px; }
-  .portrait-placeholder > span { font-size:1rem; } .portrait-placeholder small { font-size:.75rem; }
+  .portrait { width:106px; height:106px; }
+  .portrait > span { font-size:1rem; } .portrait small { font-size:.75rem; }
   .author__name { margin:0 0 8px; font-size:1.35rem; } .author__name span { display:inline; font-size:1rem; }
   .author__bio { margin:0; font-size:.875rem; }
   .author__urls { display:flex; flex-wrap:wrap; gap:0 22px; margin-top:20px; }
@@ -99,3 +99,7 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
   .page__footer a { display:block; float:none; margin-top:8px; }
 }
 @media print { .masthead,.skip-link,.page__footer { display:none; } .sidebar { position:static; } #main { padding:0; } body { background:white; } .paper-box { break-inside:avoid; } }
+
+/* Keep the supplied photo intact; crop only its profile display. */
+.portrait { overflow:hidden; display:block; }
+.portrait img { display:block; width:100%; height:100%; object-fit:cover; object-position:60% 70%; transform:scale(1.35); transform-origin:60% 65%; }

@@ -5,7 +5,7 @@ from shutil import copy2
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
-PUBLIC_FILES = ("index.html", "styles.css", ".nojekyll")
+PUBLIC_FILES = ("index.html", "styles.css", ".nojekyll", "images/shuning-li.jpeg")
 
 # Retain the upstream layout/include/content separation without requiring Ruby.
 html = (ROOT / "_layouts/default.html").read_text()
@@ -55,6 +55,7 @@ for ref in page.references:
 output = ROOT / "dist"
 output.mkdir(exist_ok=True)
 for filename in PUBLIC_FILES:
+    (output / filename).parent.mkdir(parents=True, exist_ok=True)
     copy2(ROOT / filename, output / filename)
 print(f"Built {len(PUBLIC_FILES)} files in {output}")
 print("Validated all local asset references and navigation targets.")

@@ -7,6 +7,18 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent
 PUBLIC_FILES = ("index.html", "styles.css", ".nojekyll")
 
+# Retain the upstream layout/include/content separation without requiring Ruby.
+html = (ROOT / "_layouts/default.html").read_text()
+for slot, source in {
+    "masthead": "_includes/masthead.html",
+    "author_profile": "_includes/author-profile.html",
+    "content": "_pages/about.html",
+}.items():
+    html = html.replace("{{ " + slot + " }}", (ROOT / source).read_text())
+if "{{" in html:
+    raise ValueError("Unresolved template placeholder")
+(ROOT / "index.html").write_text(html)
+
 
 class PageReferences(HTMLParser):
     def __init__(self):

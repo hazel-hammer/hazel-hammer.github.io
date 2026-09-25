@@ -24,10 +24,10 @@ Open http://127.0.0.1:4173/. The build validates local assets and navigation tar
 
 ## Publication
 
-Repository: https://github.com/hazel-hammer/shuning-li.github.io
+Repository: https://github.com/hazel-hammer/hazel-hammer.github.io
 
-Website: https://hazel-hammer.github.io/shuning-li.github.io/
+Website: https://hazel-hammer.github.io/
 
-GitHub Pages serves the root of the main branch. After editing, run `python3 build.py` and commit the generated `index.html` along with source and asset changes before pushing to main. Relative asset links support the project URL.
+GitHub Pages serves the root of the main branch. After editing, run `python3 build.py` and commit the generated `index.html` along with source and asset changes before pushing to main. Relative asset links support the homepage URL.
 
 No intake form or private supporting documents are included.

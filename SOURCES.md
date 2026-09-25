@@ -5,3 +5,7 @@
 - https://brandonstewart.org/ — computed colors read September 24, 2026: background #fdfaf4, text #121212, links #8f3f10, button/accent #a84b0e. Supporting border and placeholder colors derived for this site.
 
 The Academic Homepage template credits Minimal Mistakes by Michael Rose. This static adaptation does not include the full theme or its JavaScript dependencies.
+
+AnyBody and CoorDex: titles, author order, status, summaries, Paper/Project/Code links, and GIF demonstrations copied from the collaborator repository at the owner’s explicit request. Shuning Li is highlighted in place of Sikai Li. Only these two shared publications are included.
+
+Sidebar icons: Font Awesome Free 5.5.0 by Fonticons, Inc., bundled from the collaborator repository. Uses the same envelope, GitHub, graduation-cap, and LinkedIn icons. Font files licensed under SIL OFL 1.1: https://fontawesome.com/license/free.

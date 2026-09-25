@@ -29,7 +29,17 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
 .author__urls li { display:flex; align-items:baseline; gap:9px; font-size:.875rem; margin:10px 0; }
 .author__urls a { overflow-wrap:anywhere; }
 .profile-icon { flex:0 0 16px; text-align:center; color:var(--link); font-size:.9rem; font-weight:bold; }
-.icon-linkedin { font-size:.75rem; }
+/* Font Awesome Free 5.5.0 — https://fontawesome.com/license/free
+   Fonts: SIL OFL 1.1; CSS: MIT. Same icon set as Sikai's homepage. */
+@font-face { font-family:"Font Awesome 5 Free"; font-style:normal; font-weight:900; font-display:block; src:url("assets/fonts/fa-solid-900.woff2") format("woff2"); }
+@font-face { font-family:"Font Awesome 5 Brands"; font-style:normal; font-weight:400; font-display:block; src:url("assets/fonts/fa-brands-400.woff2") format("woff2"); }
+.profile-icon { display:inline-block; font-style:normal; line-height:1; -webkit-font-smoothing:antialiased; }
+.profile-icon.icon-solid { font-family:"Font Awesome 5 Free"; font-weight:900; }
+.profile-icon.icon-brand { font-family:"Font Awesome 5 Brands"; font-weight:400; }
+.icon-envelope::before { content:"\f0e0"; }
+.icon-github::before { content:"\f09b"; }
+.icon-scholar::before { content:"\f19d"; }
+.icon-linkedin::before { content:"\f08c"; }
 .author__urls small { color:var(--muted); font-size:.75rem; margin-left:4px; }
 .sidebar-note { border-top:1px solid var(--border); margin:22px 0 0; padding-top:17px; font-size:.875rem; color:var(--link); }
 .page { min-width:0; }
@@ -64,9 +74,8 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
 .experience-list { padding:0; list-style:none; }
 .experience-list li { display:grid; grid-template-columns:145px minmax(0,1fr); gap:15px; padding:0; margin:17px 0; }
 .experience-date { font-size:.875rem; color:var(--muted); padding-top:2px; }
-.page__footer { border-top:1px solid var(--border); color:var(--muted); font-size:.8125rem; }
+.page__footer { color:var(--text); font-size:.8125rem; text-align:center; }
 .page__footer > div { max-width:1240px; margin:auto; padding:22px 28px; }
-.page__footer a { float:right; }
 @media (max-width:1000px) {
   .greedy-nav { gap:26px; } .visible-links { gap:18px; }
   #main { gap:32px; grid-template-columns:205px minmax(0,1fr); }
@@ -96,7 +105,6 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
   .paper-box { display:block; padding-block:20px 25px; }
   .paper-box-image { width:100%; margin-bottom:18px; } .figure-placeholder { aspect-ratio:2/1; }
   .paper-box-text { width:100%; padding:0; }
-  .page__footer a { display:block; float:none; margin-top:8px; }
 }
 @media print { .masthead,.skip-link,.page__footer { display:none; } .sidebar { position:static; } #main { padding:0; } body { background:white; } .paper-box { break-inside:avoid; } }
 
@@ -104,3 +112,34 @@ a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
 .portrait { width:100%; max-width:225px; height:auto; overflow:hidden; display:block; border:0; border-radius:0; outline:0; box-shadow:none; background:transparent; }
 .portrait img { display:block; width:100%; height:auto; transform:none; }
 @media (max-width:760px) { .portrait { width:120px; } }
+
+/* Publication media and links adapted from the collaborator's entries. */
+.paper-box-image img { display:block; width:100%; height:auto; border-radius:8px; border:1px solid var(--border); }
+.paper-title a { color:var(--text); }
+.paper-title a:hover { color:var(--link); }
+a.paper-link:hover { background:var(--accent); border-color:var(--accent); color:white; text-decoration:none; }
+.venue-workshop { background:#f3e7d6; border-color:#dfc4a0; color:#84501f; }
+.venue-review { background:#fff7e8; border-color:#e4c48f; color:#815015; }
+
+/* Match Sikai's publication geometry and media treatment. */
+#publications .paper-box { display:grid; grid-template-columns:40% minmax(0,60%); align-items:center; padding:2em 0; border-bottom:1px solid var(--border); }
+#publications .paper-box-image { display:block; width:100%; min-width:0; max-width:400px; margin:0; }
+#publications .paper-media { width:100%; aspect-ratio:16 / 9; overflow:hidden; border-radius:10px; border:1px solid #c5ad98; box-shadow:0 4px 14px rgba(0,0,0,.12); transition:transform .2s ease,box-shadow .2s ease; }
+#publications .paper-media img { display:block; width:100%; height:100%; max-width:100%; object-fit:cover; border:0; border-radius:inherit; }
+#publications .paper-box-text { width:100%; min-width:0; padding:0 0 0 2em; }
+#publications .paper-title { font-size:1.06rem; font-weight:600; line-height:1.4; margin:0 0 .5em; }
+#publications .paper-authors { color:var(--text); font-size:1rem; line-height:1.5; margin-bottom:.5em; }
+#publications .paper-summary { color:var(--text); font-size:1rem; line-height:1.5; margin:.5em 0 0; padding-left:1.25em; }
+#publications .paper-summary li { margin:0; }
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  #publications .paper-media:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.18); }
+}
+@media (max-width:767px) {
+  #publications .paper-box { grid-template-columns:minmax(0,1fr); gap:1.25em; }
+  #publications .paper-box-text { grid-row:1; padding:0; }
+  #publications .paper-box-image { grid-row:2; justify-self:center; }
+}
+
+/* Overlaid venue ribbons, with the site's warm accent palette. */
+#publications .paper-box-image { position:relative; }
+#publications .venue-ribbon { position:absolute; top:8px; left:-8px; z-index:1; max-width:calc(100% - 8px); padding:4px 14px; border-radius:3px; background:var(--accent); color:#fff; font-size:.875rem; font-weight:700; line-height:1.35; box-shadow:0 4px 10px rgba(0,0,0,.2); }

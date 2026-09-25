@@ -1,11 +1,12 @@
 """Validate local page references and build a dependency-free static website."""
 from html.parser import HTMLParser
+from hashlib import sha256
 from pathlib import Path
 from shutil import copy2
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
-PUBLIC_FILES = ("index.html", "styles.css", ".nojekyll", "images/shuning-li.jpeg")
+PUBLIC_FILES = ("index.html", "styles.css", ".nojekyll", "images/shuning-li.jpeg", "images/anybody.gif", "images/coordex.gif", "assets/fonts/fa-brands-400.woff2", "assets/fonts/fa-solid-900.woff2")
 
 # Retain the upstream layout/include/content separation without requiring Ruby.
 html = (ROOT / "_layouts/default.html").read_text()
@@ -17,6 +18,9 @@ for slot, source in {
     html = html.replace("{{ " + slot + " }}", (ROOT / source).read_text())
 if "{{" in html:
     raise ValueError("Unresolved template placeholder")
+# Version the stylesheet so refreshed previews cannot retain old media sizing.
+css_version = sha256((ROOT / "styles.css").read_bytes()).hexdigest()[:12]
+html = html.replace('href="styles.css"', f'href="styles.css?v={css_version}"')
 (ROOT / "index.html").write_text(html)
 
 

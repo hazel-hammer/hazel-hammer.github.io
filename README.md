@@ -15,17 +15,19 @@ Open http://127.0.0.1:4173/. The build validates local assets and navigation tar
 
 ## Editing
 
-- `_pages/about.html`: biography, news, publications, education, experience, hobbies.
+- `_pages/about.html`: biography, publications, education, experience, and misc.
 - `_includes/author-profile.html`: portrait, name, affiliations, contact and social profiles.
 - `_includes/masthead.html`: navigation.
 - `_layouts/default.html`: metadata, page wrapper, footer.
 - `styles.css`: layout, responsive rules, and colors.
 - `index.html`: generated output; rebuild after editing source fragments.
 
-Missing photos, profile links, publication details, dates, news, and hobbies are labeled placeholders. Pending resources are plain text, not broken links. No downloadable CV is included, per the form. The RA date follows the January 2026–present range supplied.
-
 ## Publication
 
-Local draft only. No publishing workflows, trackers, analytics, or citation crawlers. Do not publish before owner approval. No intake form or private supporting documents are included.
+Repository: https://github.com/hazel-hammer/shuning-li.github.io
 
-After approval, root-level static output can be served with GitHub Pages. Under hazel-hammer/suzanna-li.github.io the usual project URL would be https://hazel-hammer.github.io/suzanna-li.github.io/. Confirm the desired public address before enabling Pages. Relative asset links work at a project path.
+Website: https://hazel-hammer.github.io/shuning-li.github.io/
+
+GitHub Pages serves the root of the main branch. After editing, run `python3 build.py` and commit the generated `index.html` along with source and asset changes before pushing to main. Relative asset links support the project URL.
+
+No intake form or private supporting documents are included.

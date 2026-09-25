@@ -6,7 +6,7 @@ from shutil import copy2
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
-PUBLIC_FILES = ("index.html", "styles.css", ".nojekyll", "images/shuning-li.jpeg", "images/anybody.gif", "images/coordex.gif", "assets/fonts/fa-brands-400.woff2", "assets/fonts/fa-solid-900.woff2")
+PUBLIC_FILES = ("google8f0b6634962b723b.html", "index.html", "styles.css", ".nojekyll", "images/shuning-li.jpeg", "images/anybody.gif", "images/coordex.gif", "assets/fonts/fa-brands-400.woff2", "assets/fonts/fa-solid-900.woff2")
 
 # Retain the upstream layout/include/content separation without requiring Ruby.
 html = (ROOT / "_layouts/default.html").read_text()
